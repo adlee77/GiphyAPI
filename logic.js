@@ -5,7 +5,7 @@ var topics = [
 $("#bread2").on("click", function () {
 
     topics.push($("#topicSelector").val().trim())
-    console.log(topics)
+    // console.log(topics)
     display()
 });
 
@@ -51,12 +51,12 @@ function display() {
                     images.attr("class", "bread3")
 
 
-
-                    gifDiv.append(r);
                     gifDiv.append(images);
+                    gifDiv.append(r);
+                   
 
 
-                    $("#gifsHere").prepend(gifDiv);
+                    $("#gifsHere").append(gifDiv);
                 };
                 $(".bread3").on("click", function(){
                     //Set up variables for still, animal, and normal state
