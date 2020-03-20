@@ -1,11 +1,12 @@
 var topics = [
     "animals", "basketball", "snowboarding", "guitars", "coding"
 ];
+console.log(topics)
 
 $("#bread2").on("click", function () {
 
     topics.push($("#topicSelector").val().trim())
-    // console.log(topics)
+    console.log(topics)
     display()
 });
 
@@ -56,7 +57,7 @@ function display() {
                    
 
 
-                    $("#gifsHere").append(gifDiv);
+                    $("#gifsHere").prepend(gifDiv);
                 };
                 $(".bread3").on("click", function(){
                     //Set up variables for still, animal, and normal state
