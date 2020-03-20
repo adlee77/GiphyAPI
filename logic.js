@@ -10,6 +10,7 @@ $("#bread2").on("click", function () {
 });
 
 function display() {
+    //need to empty out button-holder so buttons don't re-append themselves.
     $("#button-holder").empty()
     for (i = 0; i < topics.length; i++) {
         $("#button-holder").append("<button class='bread'>" + topics[i] + "</button>")
@@ -20,7 +21,7 @@ function display() {
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             search + "&api_key=OMvF7MreTMaLsz2K4XCzw2iylRg2DV4i&limit=10";
-        console.log(search)
+        // console.log(search)
 
 
         $.ajax({
@@ -41,7 +42,8 @@ function display() {
                     var rating = gifs[h].rating;
                     var r = $("<p>").text("Rating: " + rating);
                     var images = $("<img>");
-
+                    
+                    // make image attributions for still, animate, and normal state of gifs.
                     images.attr("src", gifs[h].images.original.url);
                     images.attr("data-still", gifs[h].images.original_still.url)
                     images.attr("data-animate", gifs[h].images.original.url);
@@ -57,6 +59,7 @@ function display() {
                     $("#gifsHere").prepend(gifDiv);
                 };
                 $(".bread3").on("click", function(){
+                    //Set up variables for still, animal, and normal state
                     var dataState = $(this).attr("data-state")
                     var dataAnimate = $(this).attr("data-animate")
                     var dataStill = $(this).attr("data-still")
